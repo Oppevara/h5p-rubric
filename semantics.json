@@ -1,0 +1,29 @@
+[
+  {
+    "name": "title",
+    "label": "Rubric Title",
+    "placeholder": "Rubric Title",
+    "type": "text"
+  },
+  {
+    "name": "description",
+    "label": "Rubric Description and Instructions",
+    "placeholder": "Edit me",
+    "type": "text",
+    "widget": "html",
+    "tags": [
+      "strong",
+      "em",
+      "u",
+      "a",
+      "ul",
+      "ol",
+      "h2",
+      "h3",
+      "hr",
+      "sub",
+      "sup"
+    ],
+    "optional": true
+  }
+]

@@ -1,3 +1,7 @@
+# H5P Rubric
+
+## License
+
 MIT License
 
 Copyright (c) 2017 Centre for Educational Technology, School of Digital Technology, Tallinn University
