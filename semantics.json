@@ -25,5 +25,79 @@
       "sup"
     ],
     "optional": true
+  },
+  {
+    "name": "grid",
+    "label": "Grid",
+    "type": "group",
+    "fields": [
+      {
+        "name": "rows",
+        "label": "",
+        "type": "list",
+        "field": {
+          "name": "row",
+          "type": "group",
+          "label": "",
+          "fields": [
+            {
+              "name": "rowId",
+              "label": "",
+              "type": "text"
+            },
+            {
+              "name": "rowText",
+              "label": "",
+              "type": "text"
+            },
+            {
+              "name": "columns",
+              "label": "",
+              "type": "list",
+              "field": {
+                "name": "column",
+                "type": "group",
+                "label": "",
+                "fields": [
+                  {
+                    "name": "columnId",
+                    "label": "",
+                    "type": "text"
+                  },
+                  {
+                    "name": "text",
+                    "label": "",
+                    "type": "text"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "columns",
+        "label": "",
+        "type": "list",
+        "field": {
+          "name": "column",
+          "type": "group",
+          "label": "",
+          "fields": [
+            {
+              "name": "columnId",
+              "label": "",
+              "type": "text"
+            },
+            {
+              "name": "columnText",
+              "label": "",
+              "type": "text"
+            }
+          ]
+        }
+      }
+    ],
+    "widget": "rubric"
   }
 ]
