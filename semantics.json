@@ -99,5 +99,35 @@
       }
     ],
     "widget": "rubric"
+  },
+  {
+    "name": "l10n",
+    "type": "group",
+    "label": "Localize",
+    "importance": "low",
+    "common": true,
+    "fields": [
+      {
+        "name": "downloadResponses",
+        "type": "text",
+        "label": "Title for download responses button",
+        "importance": "low",
+        "default": "Download responses"
+      },
+      {
+        "name": "missingAnswersHeading",
+        "type": "text",
+        "label": "Heading for missing answers dialog",
+        "importance": "low",
+        "default": "Some rows are missing answers"
+      },
+      {
+        "name": "missingAnswersBody",
+        "type": "text",
+        "label": "Body text or missing answers dialog",
+        "importance": "low",
+        "default": "At least one row is missing an answer! Please corret and try again!"
+      }
+    ]
   }
 ]

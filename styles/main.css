@@ -1,0 +1,41 @@
+.h5p-rubric .h5p-rubric-title {
+  font-weight: 700;
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+.h5p-rubric .h5p-rubric-description {
+  margin: 1em;
+}
+
+.h5p-rubric .h5p-rubric-responsive {
+  width: 100%;
+  overflow-y: auto;
+}
+
+.h5p-rubric table.h5p-rubric-grid > thead > tr > th {
+  min-width: 200px;
+  text-align: center;
+}
+
+.h5p-rubric table.h5p-rubric-grid > tbody > tr > td {
+  text-align: center;
+}
+
+.h5p-rubric table.h5p-rubric-grid > tbody > tr > td.grid-row-column {
+  cursor: pointer;
+}
+
+.h5p-rubric table.h5p-rubric-grid > tbody > tr > td.grid-row-column.selected {
+  background: #757575;
+  background: rgba(0, 0, 0, 0.51);
+  color: #ffffff;
+}
+
+.h5p-rubric table.h5p-rubric-grid > tbody > tr > td.grid-row-column > div {
+  white-space: pre-line;
+}
+
+.h5p-rubric .h5p-rubric-download-responses:before {
+  content: "\F019";
+}

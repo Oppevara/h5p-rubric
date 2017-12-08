@@ -1,0 +1,74 @@
+{
+  "semantics": [
+    {
+      "label": "Rubric Title"
+    },
+    {
+      "label": "Rubric Description and Instructions"
+    },
+    {
+      "label": "Grid",
+      "fields": [
+        {
+          "label": "",
+          "field": {
+            "label": "",
+            "fields": [
+              {
+                "label": ""
+              },
+              {
+                "label": ""
+              },
+              {
+                "label": "",
+                "field": {
+                  "label": "",
+                  "fields": [
+                    {
+                      "label": ""
+                    },
+                    {
+                      "label": ""
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "",
+          "field": {
+            "label": "",
+            "fields": [
+              {
+                "label": ""
+              },
+              {
+                "label": ""
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Localize",
+      "fields": [
+        {
+          "label": "Title for download responses button",
+          "default": "Download responses"
+        },
+        {
+          "label": "Heading for missing answers dialog",
+          "default": "Some rows are missing answers"
+        },
+        {
+          "label": "Body text or missing answers dialog",
+          "default": "At least one row is missing an answer! Please corret and try again!"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "semantics": [
+    {
+      "label": "Rubric Pealkiri"
+    },
+    {
+      "label": "Rubric Kirjeldus ja Juhised"
+    },
+    {
+      "label": "Ruudustik",
+      "fields": [
+        {
+          "label": "",
+          "field": {
+            "label": "",
+            "fields": [
+              {
+                "label": ""
+              },
+              {
+                "label": ""
+              },
+              {
+                "label": "",
+                "field": {
+                  "label": "",
+                  "fields": [
+                    {
+                      "label": ""
+                    },
+                    {
+                      "label": ""
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "label": "",
+          "field": {
+            "label": "",
+            "fields": [
+              {
+                "label": ""
+              },
+              {
+                "label": ""
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Tõlgi",
+      "fields": [
+        {
+          "label": "\"Salvesta vastused\" nupu pealkiri",
+          "default": "Salvesta vastused"
+        },
+        {
+          "label": "\"Vastused puudu\" dialoogi pealkiri",
+          "default": "Mõnes reas on vastused puudu"
+        },
+        {
+          "label": "\"Vastused puudu\" dialoogi tekst",
+          "default": "Vähemalt ühes reas on vastus märkimata! Märgi ja proovi uuesti!"
+        }
+      ]
+    }
+  ]
+}
