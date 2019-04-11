@@ -67,6 +67,18 @@
         {
           "label": "\"Vastused puudu\" dialoogi tekst",
           "default": "Vähemalt ühes reas on vastus märkimata! Märgi ja proovi uuesti!"
+        },
+        {
+          "label": "Vastusevariandi pealkirja tekst",
+          "default": "Valimiseks klõpsa"
+        },
+        {
+          "label": "Tõendusmaterjali sisestamise kohahoidja tekst",
+          "default": "Tõendusmaterjal"
+        },
+        {
+          "label": "Tõendusmaterjali sisestamise pealkiri",
+          "default": "Esitage tõendi veebiaadressi või teksti"
         }
       ]
     }

@@ -13,6 +13,10 @@
   overflow-y: auto;
 }
 
+.h5p-rubric table.h5p-rubric-grid {
+  margin-bottom: 1em;
+}
+
 .h5p-rubric table.h5p-rubric-grid > thead > tr > th {
   min-width: 200px;
   text-align: center;
@@ -36,6 +40,17 @@
   white-space: pre-line;
 }
 
+.h5p-rubric table.h5p-rubric-grid > tbody > tr > td:first-child {
+  font-weight: bold;
+}
+
 .h5p-rubric .h5p-rubric-download-responses:before {
   content: "\F019";
+}
+
+.h5p-rubric table.h5p-rubric-grid input.grid-row-evidence {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-weight: normal;
 }

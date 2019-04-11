@@ -43,7 +43,10 @@
      this.options = options;
      this.id = id;
      this.l10n = $.extend({
-       'downloadResponses': 'Download responses'
+       'downloadResponses': 'Download responses',
+       'clickToSelect': 'Click to select',
+       'evidencePlaceholder': 'Evidence',
+       'evidenceTitle': 'Provide evidence URL or text'
      }, options.l10n !== undefined ? options.l10n : {});
    }
 
@@ -198,13 +201,20 @@
          'data-id': row.rowId,
        }).append($('<td>').append($('<div>', {
          'text': row.rowText
-       })));
+       }).append($('<input>', {
+         'type': 'text',
+         'value': '',
+         'placeholder': self.l10n.evidencePlaceholder,
+         'title': self.l10n.evidenceTitle,
+         'class': 'grid-row-evidence'
+       }))));
 
        $.each(columns, function(index, column) {
          $('<td>', {
            'class': 'grid-row-column',
            'data-row-id': row.rowId,
-           'data-id': column.columnId
+           'data-id': column.columnId,
+           'title': self.l10n.clickToSelect
          }).append($('<div>', {
            'text': self.getRowColumnText(row, column)
          })).on('click', function() {
@@ -256,6 +266,8 @@
          dataRow.push('');
          dataRow.push('');
        }
+
+       dataRow.push($('input.grid-row-evidence', rowElement).val());
 
        data.push(dataRow);
      });

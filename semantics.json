@@ -127,6 +127,27 @@
         "label": "Body text or missing answers dialog",
         "importance": "low",
         "default": "At least one row is missing an answer! Please corret and try again!"
+      },
+      {
+        "name": "clickToSelect",
+        "type": "text",
+        "label": "Grid element title text",
+        "importance": "low",
+        "default": "Click to select"
+      },
+      {
+        "name": "evidencePlaceholder",
+        "type": "text",
+        "label": "Evidence input placeholder text",
+        "importance": "low",
+        "default": "Evidence"
+      },
+      {
+        "name": "evidenceTitle",
+        "type": "text",
+        "label": "Evidence input title text",
+        "importance": "low",
+        "default": "Provide evidence URL or text"
       }
     ]
   }

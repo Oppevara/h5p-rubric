@@ -67,6 +67,18 @@
         {
           "label": "Body text or missing answers dialog",
           "default": "At least one row is missing an answer! Please corret and try again!"
+        },
+        {
+          "label": "Grid element title text",
+          "default": "Click to select"
+        },
+        {
+          "label": "Evidence input placeholder text",
+          "default": "Evidence"
+        },
+        {
+          "label": "Evidence input title text",
+          "default": "Provide evidence URL or text"
         }
       ]
     }
