@@ -1,10 +1,12 @@
 {
   "semantics": [
     {
-      "label": "Rubric Pealkiri"
+      "label": "Rubric Pealkiri",
+      "placeholder": "Rubric pealkiri"
     },
     {
-      "label": "Rubric Kirjeldus ja Juhised"
+      "label": "Rubric Kirjeldus ja Juhised",
+      "placeholder": "Muuda mind"
     },
     {
       "label": "Ruudustik",

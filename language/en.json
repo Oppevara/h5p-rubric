@@ -1,10 +1,12 @@
 {
   "semantics": [
     {
-      "label": "Rubric Title"
+      "label": "Rubric Title",
+      "placeholder": "Rubric Title"
     },
     {
-      "label": "Rubric Description and Instructions"
+      "label": "Rubric Description and Instructions",
+      "placeholder": "Edit me"
     },
     {
       "label": "Grid",
