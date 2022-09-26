@@ -30,6 +30,10 @@
   cursor: pointer;
 }
 
+.h5p-rubric table.h5p-rubric-grid > tbody > tr > td.grid-row-column:hover {
+  background-color: #F1F1F1;
+}
+
 .h5p-rubric table.h5p-rubric-grid > tbody > tr > td.grid-row-column.selected {
   background: #757575;
   background: rgba(0, 0, 0, 0.51);
