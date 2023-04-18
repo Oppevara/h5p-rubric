@@ -2,34 +2,11 @@
  * Rubric Content Type
  */
 
- // It would be useful to load those as H5P dependencies, but those seem to want to attach themselves to global window object
- (function(){
-   if (window.PAPA_PARSE_LOADED === true) return;
-   window.PAPA_PARSE_LOADED = true;
-   var script = document.createElement("script");
-   script.src = "https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.3.6/papaparse.min.js";
-   document.head.appendChild(script);
- })();
- (function(){
-   if (window.BLOB_POLYFILL_LOADED === true) return;
-   window.BLOB_POLYFILL_LOADED = true;
-   var script = document.createElement("script");
-   script.src = "https://cdnjs.cloudflare.com/ajax/libs/blob-polyfill/1.0.20150320/Blob.min.js";
-   document.head.appendChild(script);
- })();
- (function(){
-   if (window.FILE_SAVER_LOADED === true) return;
-   window.FILE_SAVERLOADED = true;
-   var script = document.createElement("script");
-   script.src = "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.3/FileSaver.min.js";
-   document.head.appendChild(script);
- })();
-
  var H5P = H5P || {};
 
  /**
   * Music Composition Exercises module
-  * @param  {H5P.jQuery} $ jQuery usef by H5P Core
+  * @param  {H5P.jQuery} $ jQuery used by H5P Core
   * @return {function}   Rubric constructor
   */
  H5P.Rubric = (function($, JoubelUI) {
@@ -254,6 +231,7 @@
      var self = this;
      var data = [];
 
+     // Criteria/Topic + Column Heading + Column value + Evidence
      self.$gridTable.find('tbody > tr.grid-row').each(function() {
        var rowElement = $(this);
        var dataRow = [rowElement.find('td:first-child').text()];
@@ -272,7 +250,7 @@
        data.push(dataRow);
      });
 
-     saveAs(new Blob([Papa.unparse(data)], { type: 'text/csv;charset=utf-8' }), "responses.csv");
+     saveAs(new Blob([Papa.unparse(data)], { type: 'text/csv;charset=utf-8' }), "responses.csv");// TODO File has to reflect the content identifier or something else
    };
 
    /**

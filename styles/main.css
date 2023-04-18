@@ -11,19 +11,29 @@
 .h5p-rubric .h5p-rubric-responsive {
   width: 100%;
   overflow-y: auto;
+  margin-bottom: 1em;
 }
 
 .h5p-rubric table.h5p-rubric-grid {
-  margin-bottom: 1em;
 }
 
 .h5p-rubric table.h5p-rubric-grid > thead > tr > th {
   min-width: 200px;
   text-align: center;
+  padding: 0.5em;
+}
+
+.h5p-rubric table.h5p-rubric-grid > thead > tr > th:not(:first-child) {
+  background-color: #e1e1e1;
 }
 
 .h5p-rubric table.h5p-rubric-grid > tbody > tr > td {
   text-align: center;
+  background-color: #e1e1e1;
+}
+
+.h5p-rubric table.h5p-rubric-grid > tbody > tr > td:first-child {
+  min-width: 300px;
 }
 
 .h5p-rubric table.h5p-rubric-grid > tbody > tr > td.grid-row-column {
@@ -31,9 +41,7 @@
 }
 
 .h5p-rubric table.h5p-rubric-grid > tbody > tr > td.grid-row-column.selected {
-  background: #757575;
-  background: rgba(0, 0, 0, 0.51);
-  color: #ffffff;
+  background-color: #d8ffd8;
 }
 
 .h5p-rubric table.h5p-rubric-grid > tbody > tr > td.grid-row-column > div {
@@ -53,4 +61,13 @@
   width: 100%;
   text-align: center;
   font-weight: normal;
+  padding: 0.75em 0 0.75em 0;
+  border: none;
+  margin-top: 0.5em;
+  outline: none;
+  border-bottom: 1px solid #fff;
+}
+
+.h5p-rubric table.h5p-rubric-grid input.grid-row-evidence:focus {
+  border-bottom: 1px solid #1a73d9;
 }
