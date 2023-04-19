@@ -250,7 +250,7 @@
        data.push(dataRow);
      });
 
-     saveAs(new Blob([Papa.unparse(data)], { type: 'text/csv;charset=utf-8' }), "responses.csv");// TODO File has to reflect the content identifier or something else
+     saveAs(new Blob([Papa.unparse(data)], { type: 'text/csv;charset=utf-8' }), 'rubric-' + this.id + '-responses.csv');
    };
 
    /**
@@ -260,25 +260,28 @@
     */
    Rubric.prototype.attach = function($container) {
      var self = this;
+     var $content = $('<div>', {
+       'class': 'h5p-rubric-content',
+     }).appendTo($container);
      self.$container = $container;
 
      $container.addClass('h5p-rubric');
      $('<h3>', {
        'class': 'h5p-rubric-title',
        'text': self.getTitle()
-     }).appendTo($container);
+     }).appendTo($content);
 
      if ( self.hasDescription() ) {
        $('<div>', {
          'class': 'h5p-rubric-description',
          'html': self.getDescription()
-       }).appendTo($container);
+       }).appendTo($content);
      }
 
      if ( self.hasGrid() ) {
        self.$responsiveContainer = $('<div>', {
          'class': 'h5p-rubric-responsive'
-       }).appendTo(self.$container);
+       }).appendTo($content);
        self.$gridTable = self.generateGridTable().appendTo(self.$responsiveContainer);
 
        JoubelUI.createButton({
@@ -289,7 +292,7 @@
              self.downloadResponses();
            }
          },
-         'appendTo': self.$container
+         'appendTo': $content
        });
      }
    };

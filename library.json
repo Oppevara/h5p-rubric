@@ -9,6 +9,7 @@
   "license": "MIT",
   "machineName": "H5P.Rubric",
   "embedTypes": ["iframe"],
+  "fullscreen": 1,
   "preloadedJs": [
     {
       "path": "vendor/papaparse.min.js"
