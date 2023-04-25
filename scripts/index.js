@@ -183,7 +183,8 @@
          'value': '',
          'placeholder': self.l10n.evidencePlaceholder,
          'title': self.l10n.evidenceTitle,
-         'class': 'grid-row-evidence'
+         'class': 'grid-row-evidence',
+         'tabindex': '0'
        }))));
 
        $.each(columns, function(index, column) {
@@ -191,11 +192,17 @@
            'class': 'grid-row-column',
            'data-row-id': row.rowId,
            'data-id': column.columnId,
-           'title': self.l10n.clickToSelect
+           'title': self.l10n.clickToSelect,
+           'tabindex': '0'
          }).append($('<div>', {
            'text': self.getRowColumnText(row, column)
          })).on('click', function() {
            self.selectGridRowColumn(row, column);
+         }).on('keypress', function(event) {
+           if (event.which === 32 || event.which === 13) {
+             event.preventDefault();
+             self.selectGridRowColumn(row, column);
+           }
          }).appendTo(tr);
        });
 
@@ -280,7 +287,8 @@
 
      if ( self.hasGrid() ) {
        self.$responsiveContainer = $('<div>', {
-         'class': 'h5p-rubric-responsive'
+         'class': 'h5p-rubric-responsive',
+         'tabindex': '-1'
        }).appendTo($content);
        self.$gridTable = self.generateGridTable().appendTo(self.$responsiveContainer);
 
