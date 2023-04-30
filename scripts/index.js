@@ -10,6 +10,8 @@ var H5P = H5P || {};
  * @return {function}   Rubric constructor
  */
 H5P.Rubric = (function ($, JoubelUI) {
+  var domParser = new DOMParser();
+
   /**
    * Rubric constructor
    * @param       {object} options Object with current data and configurations
@@ -25,6 +27,19 @@ H5P.Rubric = (function ($, JoubelUI) {
       'evidencePlaceholder': 'Evidence',
       'evidenceTitle': 'Provide evidence URL or text'
     }, options.l10n !== undefined ? options.l10n : {});
+  }
+
+  /**
+   * Unescapes a textual content escaped by PHP htmlentities function.
+   * Solution taken from https://stackoverflow.com/a/34064434/2704169
+   * @param text
+   * @returns {string}
+   */
+  function unescape(text) {
+    return domParser
+      .parseFromString(text, "text/html")
+      .documentElement
+      .textContent;
   }
 
   /**
@@ -168,7 +183,7 @@ H5P.Rubric = (function ($, JoubelUI) {
       $('<th>', {
         'class': 'gird-column',
         'data-id': column.columnId,
-        'text': column.columnText
+        'html': column.columnText
       }).appendTo(table.find('thead > tr'));
     });
 
@@ -177,7 +192,7 @@ H5P.Rubric = (function ($, JoubelUI) {
         'class': 'grid-row',
         'data-id': row.rowId,
       }).append($('<td>').append($('<div>', {
-        'text': row.rowText
+        'html': row.rowText
       }).append($('<input>', {
         'type': 'text',
         'value': '',
@@ -195,7 +210,7 @@ H5P.Rubric = (function ($, JoubelUI) {
           'title': self.l10n.clickToSelect,
           'tabindex': '0'
         }).append($('<div>', {
-          'text': self.getRowColumnText(row, column)
+          'html': self.getRowColumnText(row, column)
         })).on('click', function () {
           self.selectGridRowColumn(row, column);
         }).on('keypress', function (event) {
@@ -231,6 +246,46 @@ H5P.Rubric = (function ($, JoubelUI) {
   };
 
   /**
+   * Returns row text
+   * @param  {string} id Row id
+   * @return {string}    Value or an empty string
+   */
+  Rubric.prototype.getRowText = function (id) {
+    var text = '';
+
+    var row = this._find(this.getGridRows(), 'rowId', id);
+
+    if (row && Object.prototype.hasOwnProperty.call(row, 'rowText')) {
+      text = row.rowText;
+    }
+
+    return text;
+  };
+
+  /**
+   * Returns row column text
+   * @param  {string} rowId    Row id
+   * @param  {string} columnId Column id
+   * @return {string}          Value or an empty string
+   */
+  Rubric.prototype.getSelectedRowColumnText = function (rowId, columnId) {
+    var text = '';
+
+    var row = this._find(this.getGridRows(), 'rowId', rowId);
+
+    if (row && Object.prototype.hasOwnProperty.call(row, 'columns')) {
+
+      var column = this._find(row.columns, 'columnId', columnId);
+
+      if (column && Object.prototype.hasOwnProperty.call(column, 'text')) {
+        text = column.text;
+      }
+    }
+
+    return text;
+  };
+
+  /**
    * Trigger download of CSV file with textual data
    * @return {void}
    */
@@ -241,12 +296,14 @@ H5P.Rubric = (function ($, JoubelUI) {
     // Criteria/Topic + Column Heading + Column value + Evidence
     self.$gridTable.find('tbody > tr.grid-row').each(function () {
       var rowElement = $(this);
-      var dataRow = [rowElement.find('td:first-child').text()];
       var selectedRowColumn = rowElement.find('td.grid-row-column.selected').get(0);
+      var rowId = $(selectedRowColumn).data('row-id');
+      var columnId = $(selectedRowColumn).data('id');
+      var dataRow = [unescape(self.getRowText(rowId))];
 
       if (selectedRowColumn) {
-        dataRow.push(self.getColumnText($(selectedRowColumn).data('id')));
-        dataRow.push($(selectedRowColumn).text());
+        dataRow.push(unescape(self.getColumnText(columnId)));
+        dataRow.push(unescape(self.getSelectedRowColumnText(rowId, columnId)));
       }
       else {
         dataRow.push('');
