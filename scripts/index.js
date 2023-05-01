@@ -138,7 +138,7 @@ H5P.Rubric = (function ($, JoubelUI) {
    */
   Rubric.prototype.selectGridRowColumn = function (row, column) {
     this.$container.find('table.h5p-rubric-grid > tbody > tr[data-id="' + row.rowId + '"] > td.selected').removeClass('selected');
-    this.$container.find('table.h5p-rubric-grid > tbody > tr[data-id="' + row.rowId + '"] > td[data-id="' + column.columnId + '"]').addClass('selected');
+    this.$container.find('table.h5p-rubric-grid > tbody > tr[data-id="' + row.rowId + '"] > td[data-column-id="' + column.columnId + '"]').addClass('selected');
   };
 
   /**
@@ -206,7 +206,7 @@ H5P.Rubric = (function ($, JoubelUI) {
         $('<td>', {
           'class': 'grid-row-column',
           'data-row-id': row.rowId,
-          'data-id': column.columnId,
+          'data-column-id': column.columnId,
           'title': self.l10n.clickToSelect,
           'tabindex': '0'
         }).append($('<div>', {
@@ -268,7 +268,7 @@ H5P.Rubric = (function ($, JoubelUI) {
    * @param  {string} columnId Column id
    * @return {string}          Value or an empty string
    */
-  Rubric.prototype.getSelectedRowColumnText = function (rowId, columnId) {
+  Rubric.prototype.getSelectedCellText = function (rowId, columnId) {
     var text = '';
 
     var row = this._find(this.getGridRows(), 'rowId', rowId);
@@ -296,14 +296,14 @@ H5P.Rubric = (function ($, JoubelUI) {
     // Criteria/Topic + Column Heading + Column value + Evidence
     self.$gridTable.find('tbody > tr.grid-row').each(function () {
       var rowElement = $(this);
-      var selectedRowColumn = rowElement.find('td.grid-row-column.selected').get(0);
-      var rowId = $(selectedRowColumn).data('row-id');
-      var columnId = $(selectedRowColumn).data('id');
+      var selectedCell = rowElement.find('td.grid-row-column.selected').get(0);
+      var rowId = $(selectedCell).data('row-id');
+      var columnId = $(selectedCell).data('column-id');
       var dataRow = [unescape(self.getRowText(rowId))];
 
-      if (selectedRowColumn) {
+      if (selectedCell) {
         dataRow.push(unescape(self.getColumnText(columnId)));
-        dataRow.push(unescape(self.getSelectedRowColumnText(rowId, columnId)));
+        dataRow.push(unescape(self.getSelectedCellText(rowId, columnId)));
       }
       else {
         dataRow.push('');
