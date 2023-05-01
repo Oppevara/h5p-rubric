@@ -343,7 +343,7 @@ H5P.Rubric = (function ($, JoubelUI) {
     self.$container = $container;
 
     $container.addClass('h5p-rubric');
-    $('<h3>', {
+    $('<div>', {
       'class': 'h5p-rubric-title',
       'text': self.getTitle()
     }).appendTo($content);
