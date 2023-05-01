@@ -25,7 +25,10 @@ H5P.Rubric = (function ($, JoubelUI) {
       'downloadResponses': 'Download responses',
       'clickToSelect': 'Click to select',
       'evidencePlaceholder': 'Evidence',
-      'evidenceTitle': 'Provide evidence URL or text'
+      'evidenceTitle': 'Provide evidence URL or text',
+      'performanceIndicator': 'Performance indicator',
+      'levelOfAchievement': 'Level of achievement',
+      'scoringGuidelines': 'Scoring guidelines'
     }, options.l10n !== undefined ? options.l10n : {});
   }
 
@@ -45,7 +48,7 @@ H5P.Rubric = (function ($, JoubelUI) {
   /**
    * Tries to find element within an array.
    * Uses native Array.find, if available.
-   * Uses abstract comparsion operator (e.g. ==).
+   * Uses abstract comparison operator (e.g. ==).
    * @param  {array} elements An array ob objects
    * @param  {mixed} key      Key to use for comparison
    * @param  {mixed} value    Value to use for comparison
@@ -183,7 +186,8 @@ H5P.Rubric = (function ($, JoubelUI) {
       $('<th>', {
         'class': 'gird-column',
         'data-id': column.columnId,
-        'html': column.columnText
+        'html': column.columnText,
+        'aria-label': self.l10n.levelOfAchievement
       }).appendTo(table.find('thead > tr'));
     });
 
@@ -191,15 +195,20 @@ H5P.Rubric = (function ($, JoubelUI) {
       var tr = $('<tr>', {
         'class': 'grid-row',
         'data-id': row.rowId,
-      }).append($('<td>').append($('<div>', {
-        'html': row.rowText
-      }).append($('<input>', {
-        'type': 'text',
-        'value': '',
-        'placeholder': self.l10n.evidencePlaceholder,
-        'title': self.l10n.evidenceTitle,
-        'class': 'grid-row-evidence',
-        'tabindex': '0'
+      }).append($('<td>', {
+        'aria-label': self.l10n.performanceIndicator
+      })
+        .append($('<div>', {
+          'html': row.rowText
+        })
+          .append($('<input>', {
+            'type': 'text',
+            'value': '',
+            'placeholder': self.l10n.evidencePlaceholder,
+            'title': self.l10n.evidenceTitle,
+            'class': 'grid-row-evidence',
+            'tabindex': '0',
+            'aria-label': self.l10n.evidencePlaceholder
       }))));
 
       $.each(columns, function (index, column) {
@@ -208,7 +217,8 @@ H5P.Rubric = (function ($, JoubelUI) {
           'data-row-id': row.rowId,
           'data-column-id': column.columnId,
           'title': self.l10n.clickToSelect,
-          'tabindex': '0'
+          'tabindex': '0',
+          'aria-label': self.l10n.scoringGuidelines
         }).append($('<div>', {
           'html': self.getRowColumnText(row, column)
         })).on('click', function () {
@@ -291,7 +301,9 @@ H5P.Rubric = (function ($, JoubelUI) {
    */
   Rubric.prototype.downloadResponses = function () {
     var self = this;
-    var data = [];
+    var data = [
+      [self.l10n.performanceIndicator, self.l10n.levelOfAchievement, self.l10n.scoringGuidelines, self.l10n.evidencePlaceholder]
+    ];
 
     // Criteria/Topic + Column Heading + Column value + Evidence
     self.$gridTable.find('tbody > tr.grid-row').each(function () {

@@ -148,6 +148,27 @@
         "label": "Evidence input title text",
         "importance": "low",
         "default": "Provide evidence URL or text"
+      },
+      {
+        "name": "performanceIndicator",
+        "type": "text",
+        "label": "Performance indicator (row) label",
+        "importance": "low",
+        "default": "Performance indicator"
+      },
+      {
+        "name": "levelOfAchievement",
+        "type": "text",
+        "label": "Level of achievement (column) label",
+        "importance": "low",
+        "default": "Level of achievement"
+      },
+      {
+        "name": "scoringGuidelines",
+        "type": "text",
+        "label": "Scoring guidelines label for a level of achievement of a single performance indicator",
+        "importance": "low",
+        "default": "Scoring guidelines"
       }
     ]
   }

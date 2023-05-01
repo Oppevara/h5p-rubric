@@ -81,6 +81,18 @@
         {
           "label": "Evidence input title text",
           "default": "Provide evidence URL or text"
+        },
+        {
+          "label": "Performance indicator (row) label",
+          "default": "Performance indicator"
+        },
+        {
+          "label": "Level of achievement (column) label",
+          "default": "Level of achievement"
+        },
+        {
+          "label": "Scoring guidelines label for a level of achievement of a single performance indicator",
+          "default": "Scoring guidelines"
         }
       ]
     }

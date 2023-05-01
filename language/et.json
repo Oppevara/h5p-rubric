@@ -81,6 +81,18 @@
         {
           "label": "Tõendusmaterjali sisestamise pealkiri",
           "default": "Esitage tõendi veebiaadressi või teksti"
+        },
+        {
+          "label": "Tulemusnäitaja (rida) pealkiri",
+          "default": "Tulemusnäitaja"
+        },
+        {
+          "label": "Saavutustaseme (veerg) pealkiri",
+          "default": "Saavutustase"
+        },
+        {
+          "label": "Tulemusnäitaja üksiku saavutustaseme hindamisjuhiste pealkiri",
+          "default": "Hindamisjuhised"
         }
       ]
     }
