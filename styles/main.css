@@ -19,6 +19,7 @@
   border: unset;
   border-spacing: unset;
   border-collapse: collapse;
+  margin-bottom: 0.1em;
 }
 
 .h5p-rubric .h5p-rubric-content table.h5p-rubric-grid > thead > tr > th {

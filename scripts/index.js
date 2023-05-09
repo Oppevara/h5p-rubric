@@ -40,7 +40,7 @@ H5P.Rubric = (function ($, JoubelUI) {
    */
   function unescape(text) {
     return domParser
-      .parseFromString(text, "text/html")
+      .parseFromString(text, 'text/html')
       .documentElement
       .textContent;
   }
@@ -209,7 +209,8 @@ H5P.Rubric = (function ($, JoubelUI) {
             'class': 'grid-row-evidence',
             'tabindex': '0',
             'aria-label': self.l10n.evidencePlaceholder
-      }))));
+          }))
+        ));
 
       $.each(columns, function (index, column) {
         $('<td>', {
