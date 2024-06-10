@@ -15,7 +15,7 @@ to assess student work, making the grading process more fair and consistent.
 
 ## Development
 
-Install dependencies and run the linter by typing `npm ruin lint`.
+Install dependencies and run the linter by typing `npm run lint`.
 
 ## License
 
